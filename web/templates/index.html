@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TitanNavigator - Volcano Classifier</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🛰️ TitanNavigator</h1>
+        <p>Upload a satellite image and see if it’s (near) a volcano</p>
+
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <div class="file-input-wrapper">
+                <input type="file" id="file-upload" name="file" accept="image/*" required>
+                <label for="file-upload" class="file-upload-label">Choose File</label>
+                <button type="submit">Classify</button>
+            </div>
+        </form>
+
+        {% if image_url %}
+            <div class="image-container">
+                <h2>Uploaded Image:</h2>
+                <img src="{{ image_url }}" alt="Uploaded Image">
+            </div>
+        {% endif %}
+
+        {% if result %}
+            <div class="result">
+                <h2>Result: {{ result }}</h2>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 90%;
+}
+
+h1 {
+    margin-bottom: 0.5rem;
+}
+
+form {
+    margin: 1rem 0;
+}
+
+/* Hide the default file input button */
+input[type="file"] {
+    display: none;
+}
+
+/* Style the new button-like label */
+.file-upload-label {
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #28a745; /* Green color */
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: inline-block;
+    margin: 1rem 0;
+}
+
+.file-upload-label:hover {
+    background: #218838; /* A slightly darker green on hover */
+}
+
+button {
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #0077ff;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #005fcb;
+}
+
+.image-container {
+    margin: 1.5rem 0;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+}
+
+.result {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
