@@ -4,7 +4,7 @@ import sys
 import os
 import torch
 import torchvision.transforms as transforms
-from projects.VolcanoFinder.models import MyFirstCNN
+from VolcanoFinder.models import MyFirstCNN
 
 from fastapi import FastAPI, UploadFile, File, Request
 from fastapi.responses import HTMLResponse
@@ -18,14 +18,18 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "..", "cnns"))
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
+BASE_DIR = os.path.dirname(__file__)
+STATIC_DIR = os.path.join(BASE_DIR, "static")
+TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
+
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+templates = Jinja2Templates(directory=TEMPLATES_DIR)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 model = MyFirstCNN().to(device)
 model.load_state_dict(torch.load(
-    os.path.join(os.path.dirname(__file__), "..", "notebooks", "8607BCE.pth"),
+    os.path.join(BASE_DIR, "..", "cnns", "8607BCE.pth"),
     map_location=device
 ))
 model.eval()
@@ -46,7 +50,7 @@ async def predict(request: Request, file: UploadFile = File(...)):
     image = Image.open(io.BytesIO(contents)).convert("RGB")
 
     # Save uploaded image to static/ so frontend can show it
-    image_path = os.path.join("static", file.filename)
+    image_path = os.path.join(STATIC_DIR, file.filename)
     image.save(image_path)
 
     img_tensor = transform(image).unsqueeze(0).to(device)
