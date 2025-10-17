@@ -4,12 +4,14 @@ import sys
 import os
 import torch
 import torchvision.transforms as transforms
-from models import MyFirstCNN
+from projects.VolcanoFinder.models import MyFirstCNN
+
 from fastapi import FastAPI, UploadFile, File, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.background import BackgroundTask
+
 from PIL import Image
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "..", "cnns"))

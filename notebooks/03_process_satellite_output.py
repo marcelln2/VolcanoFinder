@@ -2,7 +2,7 @@ import os
 import torch
 from PIL import Image
 import torchvision.transforms as transforms
-from projects.VolcanoFinder.web.models import MyFirstCNN
+from projects.VolcanoFinder.models import MyFirstCNN
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
