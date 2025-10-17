@@ -23,7 +23,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 model = MyFirstCNN().to(device)
 model.load_state_dict(torch.load(
-    os.path.join(os.path.dirname(__file__), "..", "notebooks", "8033BCE.pth"),
+    os.path.join(os.path.dirname(__file__), "..", "notebooks", "8607BCE.pth"),
     map_location=device
 ))
 model.eval()
