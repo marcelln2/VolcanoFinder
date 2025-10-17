@@ -12,7 +12,7 @@ from fastapi.templating import Jinja2Templates
 from starlette.background import BackgroundTask
 from PIL import Image
 
-sys.path.append(os.path.join(os.path.dirname(__file__), "..", "notebooks"))
+sys.path.append(os.path.join(os.path.dirname(__file__), "..", "cnns"))
 
 app = FastAPI()
 
