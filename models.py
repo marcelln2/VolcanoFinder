@@ -25,3 +25,8 @@ class MyFirstCNN(nn.Module):
         x = torch.relu(x)
         x = torch.sigmoid(self.fc2(x))
         return x
+
+    def get_feature_maps(self, x):
+        fmap1 = self.pool1(torch.relu(self.bn1(self.conv1(x))))
+        fmap2 = self.pool2(torch.relu(self.bn2(self.conv2(fmap1))))
+        return fmap1, fmap2
