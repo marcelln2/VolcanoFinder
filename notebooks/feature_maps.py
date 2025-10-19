@@ -1,8 +1,8 @@
-from projects.VolcanoFinder.models import MyFirstCNN
-from torchvision import transforms
-from PIL import Image
 import torch
+from PIL import Image
 import matplotlib.pyplot as plt
+from torchvision import transforms
+from projects.VolcanoFinder.models import MyFirstCNN
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = MyFirstCNN().to(device)
