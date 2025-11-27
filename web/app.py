@@ -4,17 +4,16 @@ import sys
 import os
 import torch
 import torchvision.transforms as transforms
-from VolcanoFinder.models import MyFirstCNN
+from models import MyFirstCNN
 
 from fastapi import FastAPI, UploadFile, File, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.background import BackgroundTask
-
 from PIL import Image
 
-sys.path.append(os.path.join(os.path.dirname(__file__), "..", "cnns"))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 app = FastAPI()
 
@@ -49,9 +48,9 @@ async def predict(request: Request, file: UploadFile = File(...)):
     contents = await file.read()
     image = Image.open(io.BytesIO(contents)).convert("RGB")
 
-    # Save uploaded image to static/ so frontend can show it
-    image_path = os.path.join(STATIC_DIR, file.filename)
-    image.save(image_path)
+    filename = file.filename
+    image_path_local = os.path.join(STATIC_DIR, filename)
+    image.save(image_path_local)
 
     img_tensor = transform(image).unsqueeze(0).to(device)
 
@@ -61,9 +60,12 @@ async def predict(request: Request, file: UploadFile = File(...)):
 
     result = "🌋 Volcano" if prediction == 1.0 else "❌ Not a Volcano"
 
+    image_url_for_frontend = "/static/" + filename
+
     async def cleanup_with_delay():
         await asyncio.sleep(4)
-        os.remove(image_path)
+
+        os.remove(image_path_local)
 
     background_task = BackgroundTask(cleanup_with_delay)
 
@@ -72,8 +74,8 @@ async def predict(request: Request, file: UploadFile = File(...)):
         {
             "request": request,
             "result": result,
-            "image_url": "/" + image_path
+            "image_url": image_url_for_frontend
         },
         background=background_task
     )
-# uvicorn app:app --reload || to launch the app
+# uvicorn web.app:app --reload

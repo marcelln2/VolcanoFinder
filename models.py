@@ -17,8 +17,6 @@ class MyFirstCNN(nn.Module):
         self.fc2 = nn.Linear(128, 1)
 
     def forward(self, x):
-
-        
         x = self.pool1(torch.relu(self.bn1(self.conv1(x))))
         x = self.pool2(torch.relu(self.bn2(self.conv2(x))))
         x = torch.flatten(x, 1)
