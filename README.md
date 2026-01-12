@@ -1,10 +1,10 @@
 # 🌋 VolcanoFinder
 
-### ✨ Welcome to my Machine Learning project!
+###  Welcome to my Machine Learning project!
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 This project is focused on understanding the structure of the machine learning pipeline, 
 the foundations of Convolutional Neural Networks (CNNs) and how to use such algorithms in simulation using Unreal Engine.
@@ -14,9 +14,9 @@ If a volcano is found, scientists could begin further investigation into the giv
 
 ---
 
-## 🧪 Setup & Requirements
+## Setup & Requirements
 
-### 📂 Folder & file information
+### Folder & file information
 
 - `/cnns` – a history of previous-best CNNs + the one with the highest accuracy (86.07BCE.pth)
 - `/data` – a storage for all the data, both used and raw
@@ -25,7 +25,7 @@ If a volcano is found, scientists could begin further investigation into the giv
 - `/web` – all related files to ensure a working web application (localhost)
 - `models.py` - contains the model (CNN)
 
-### 📦 Software requirements
+### Software requirements
 
 Make sure the following software / libraries installed:
 
@@ -45,10 +45,7 @@ Make sure the following software / libraries installed:
 - `matplotlib >= 3.10.3`
 - `PIL >= 11.3.0`
 
-> ⚠️ Older versions **may** work, but compatibility is not guaranteed.
-
-
-### ⚙️ Hardware requirements
+### Hardware requirements
 
 02_train_test.ipynb is optimized for the following: 
 - `NVIDIA RTX 5070 Ti Blackwell GPU`
@@ -59,7 +56,7 @@ Ideally, an NVIDIA GPU is the only "must".
 
 ---
 
-## 🧠 Script Breakdown
+## Script Breakdown
 
 ### `01_img_process.ipynb`
 Processes the input images.
@@ -91,7 +88,7 @@ This folder should be separate of the VolcanoFinder folder.
 
 ---
 
-## 🛰️ Simulation & results
+## Simulation & results
 
 - The simulation, including data sharing: https://youtu.be/V9gA92_F8NU
 - The satellite seen on the video is a mask on a drone. The regular "twitches" it makes are because
@@ -99,7 +96,7 @@ of the fact that it has to go around "Mars" in a 90 degree "circle", and making 
 every single time would not work, or would have taken too much time to implement.
 ---
 
-## 📍 Notes
+## Notes
 
 - Any potential replication of the project inclusive of the AirSim / Unreal Engine simulation should only be done
 if the person knows what they are doing. Setting up an outdated UE version with plugins having "interesting"
@@ -109,12 +106,12 @@ idea was to use the Earth in UE, however, due to plugin issues, Mars was importe
 
 ---
 
-## 📊 Data source
+## Data source
 - The Internet (2D Satellite images of volcanoes + mountains)
 
 ---
 
-## 💬 Final Thoughts
+## Final Thoughts
 
 - After finishing the project and testing the model on pictures of actual volcanoes from Mars, I came to the
 conclusion that training the volcano on images from Earth while the potential planets which it analyzes look completely
