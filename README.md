@@ -124,5 +124,5 @@ so many skills and valuable knowledge from it, including Machine Learning in gen
 of course, domain research.
 
 
-- If we were to use this model for detecting volcanoes on Earth, a (theoretical) accuracy of 86.07% could be achieved.
+- If we were to use this model for detecting volcanoes on Earth, a (theoretical) accuracy of 89.09% could be achieved.
 
